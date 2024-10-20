@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+rofi \
+	-dmenu -i \
+	-scroll-method 0 \
+	-theme ~/.config/rofi/config/networkmenu.rasi

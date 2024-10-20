@@ -1,0 +1,14 @@
+@import "themes/catppuccin-mocha.rasi"
+
+* {
+    BG:    @base;
+    BGA:   @sky;
+    FG:    @text;
+    FGA:   @pink;
+    BDR:   @sapphire; 
+    SEL:   @base;
+    UGT:   @red;
+    IMG:   @yellow;
+    OFF:   @overlay0;
+    ON:    @green;
+}
