@@ -30,6 +30,11 @@ in
         core = {
           whitespace = "trailing-space,space-before-tab";
         };
+        url = {
+          "ssh://git@github.com/" = {
+            insteadOf = "https://github.com/";
+          };
+        };
       };
     };
   };

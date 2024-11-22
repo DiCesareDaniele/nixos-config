@@ -203,5 +203,6 @@ bindsym $mod+n exec networkmanager_dmenu
 
 gaps inner 15
 
+exec --no-startup-id pamixer --default-source -u
 exec_always --no-startup-id sh ~/.config/polybar/launch.sh
 exec_always --no-startup-id feh --bg-scale ~/Pictures/wallpaper.jpg

@@ -13,6 +13,7 @@ in {
     };
     cli-apps = {
       home-manager = enabled;
+      nvim = enabled;
     };
     apps = {
       vscode = enabled;

@@ -6,7 +6,7 @@ let
   user = osConfig.user;
 in {
   options.user = with types; {
-    enable = mkOpt bool true "Whether to configure user";
+    enable = mkBoolOpt true "Whether to configure user";
     name = mkOpt str user.name "The name to use for the user account";
     fullName = mkOpt str user.fullName "The full name of the user";
     email = mkOpt str user.email "The email of the user";

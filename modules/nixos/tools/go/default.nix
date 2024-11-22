@@ -10,6 +10,7 @@ in {
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [ go ];
     environment.sessionVariables = {
+      PATH = "$HOME/go/bin:$PATH";
       GOPATH = "$HOME/go";
     };
   };
