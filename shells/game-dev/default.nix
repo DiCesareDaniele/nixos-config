@@ -1,8 +1,15 @@
 { pkgs, ... }:
 with pkgs;
-mkShell {
-  NIX_LD_LIBRARY_PATH = lib.makeLibraryPath [
+mkShell rec {
+  nativeBuildInputs = [
+    pkg-config
+  ];
+  buildInputs = [
+    udev
     alsa-lib
+    zlib
+    vulkan-loader
+    vulkan-tools
     at-spi2-atk
     at-spi2-core
     atk
@@ -37,8 +44,6 @@ mkShell {
     pipewire
     stdenv.cc.cc
     systemd
-    vulkan-loader
-    vulkan-tools
     xorg.libX11
     xorg.libXScrnSaver
     xorg.libXcomposite
@@ -54,8 +59,8 @@ mkShell {
     xorg.libxkbfile
     xorg.libXinerama
     xorg.libxshmfence
-    zlib
   ];
+  NIX_LD_LIBRARY_PATH = lib.makeLibraryPath buildInputs;
   NIX_LD = lib.fileContents "${stdenv.cc}/nix-support/dynamic-linker";
   shellHook = ''
     export LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH

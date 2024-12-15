@@ -19,5 +19,8 @@ in {
       vscode = enabled;
       bloomrpc = enabled;
     };
+    virtualisation = {
+      kvm = enabled;
+    };
   };
 }

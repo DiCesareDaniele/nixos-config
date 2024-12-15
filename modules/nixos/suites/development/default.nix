@@ -13,6 +13,7 @@ in {
     };
     virtualisation = {
       docker = enabled;
+      kvm = enabled;
     };
   };
 }

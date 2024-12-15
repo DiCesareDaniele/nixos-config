@@ -10,10 +10,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-ld = {
-      url = "github:Mic92/nix-ld";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # nix-ld = {
+    #   url = "github:Mic92/nix-ld";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
 
     snowfall-lib = {
       url = "github:snowfallorg/lib";
@@ -30,7 +30,7 @@
       };
       systems.modules.nixos = with inputs; [
         home-manager.nixosModules.home-manager
-        nix-ld.nixosModules.nix-ld
+        # nix-ld.nixosModules.nix-ld
       ];
     };
 }
