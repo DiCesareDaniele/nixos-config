@@ -21,7 +21,7 @@ in {
       xkb = enabled;
     };
     tools = {
-      # nix-ld = enabled;
+      nix-ld = enabled;
     };
   };
 }

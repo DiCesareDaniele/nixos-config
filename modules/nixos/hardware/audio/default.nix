@@ -8,6 +8,17 @@ in {
     enable = mkBoolOpt false "Whether to configure audio";
   };
   config = mkIf cfg.enable {
-    hardware.pulseaudio = enabled;
+    services = {
+      pipewire = {
+        enable = true;
+        audio = enabled;
+        pulse = enabled;
+        jack = enabled;
+        alsa = {
+          enable = true;
+          support32Bit = true;
+        };
+      };
+    };
   };
 }

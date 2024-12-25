@@ -8,6 +8,6 @@ in {
     enable = mkBoolOpt false "Whether to configure nix-ld";
   };
   config = mkIf cfg.enable {
-    # programs.nix-ld.dev = enabled;
+    programs.nix-ld.dev = enabled;
   };
 }

@@ -2,18 +2,17 @@
   description = "One flake to rule them all";
 
   inputs = {
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.05";
-    unstable.url = "github:nixos/nixpkgs/nixos-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.05";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # nix-ld = {
-    #   url = "github:Mic92/nix-ld";
-    #   inputs.nixpkgs.follows = "nixpkgs";
-    # };
+    nix-ld = {
+      url = "github:Mic92/nix-ld";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     snowfall-lib = {
       url = "github:snowfallorg/lib";
@@ -30,7 +29,7 @@
       };
       systems.modules.nixos = with inputs; [
         home-manager.nixosModules.home-manager
-        # nix-ld.nixosModules.nix-ld
+        nix-ld.nixosModules.nix-ld
       ];
     };
 }
