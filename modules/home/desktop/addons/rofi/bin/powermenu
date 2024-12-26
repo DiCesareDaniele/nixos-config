@@ -19,32 +19,29 @@ else
 	layout=`cat ~/.config/rofi/config/powermenu.rasi | grep BUTTON | cut -d'=' -f2 | tr -d '[:blank:],*/'`
 	if [[ "$layout" == "TRUE" ]]; then
   # Section 1
-
-		shutdown=""
-		reboot=""
-		lock=""
-		suspend=""
-		logout=""
+		shutdown="󰐥"
+		reboot="󰜉"
+		lock="󰍁"
+		suspend="󰒲"
+		logout="󰍃"
   # Section 2
 #		shutdown="󰐥"
 #		reboot="󰜉"
 #		lock="󰍁"
 #		suspend="󰒲"
-#		logout="󰍃 "
-
-
+#		logout="󰍃"
 	else
   # Section 1
-		shutdown=" Shutdown"
-		reboot=" Restart"
-		lock=" Lock"
-		suspend=" Sleep"
-		logout=" Logout"
+		shutdown="󰐥 Shutdown"
+		reboot="󰜉 Restart"
+		lock="󰍁 Lock"
+		suspend="󰒲 Sleep"
+		logout="󰍃 Logout"
   # Section 2
-#		shutdown="󰐥Shutdown"
+#		shutdown="󰐥 Shutdown"
 #		reboot="󰜉 Restart"
 #		lock="󰍁 Lock"
-#		suspend="󰒲Sleep"
+#		suspend="󰒲 Sleep"
 #		logout="󰍃 Logout"
 	fi
 	ddir="~/.config/rofi/config"

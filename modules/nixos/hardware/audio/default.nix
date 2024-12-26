@@ -11,13 +11,7 @@ in {
     services = {
       pipewire = {
         enable = true;
-        audio = enabled;
         pulse = enabled;
-        jack = enabled;
-        alsa = {
-          enable = true;
-          support32Bit = true;
-        };
       };
     };
   };

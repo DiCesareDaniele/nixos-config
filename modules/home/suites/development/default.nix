@@ -18,6 +18,7 @@ in {
     apps = {
       vscode = enabled;
       bloomrpc = enabled;
+      android-studio = enabled;
     };
     virtualisation = {
       kvm = enabled;
