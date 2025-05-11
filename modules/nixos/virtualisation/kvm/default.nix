@@ -11,7 +11,14 @@ in {
     programs.virt-manager = enabled;
     
     virtualisation = {
-      libvirtd = enabled;
+      libvirtd = {
+        enable = true;
+        # for windows support
+        qemu = {
+          ovmf = enabled;
+          swtpm = enabled;
+        };
+      };
       spiceUSBRedirection = enabled;
     };
 
@@ -22,8 +29,9 @@ in {
     
     user = {
       extraGroups = [
-        "qemu-libvirtd"
         "libvirtd"
+        "kvm"
+        "qemu-libvirtd"
         "disk"
       ];
     };

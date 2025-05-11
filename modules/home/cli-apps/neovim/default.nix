@@ -1,4 +1,4 @@
-{ config, lib, pkgs, ... }: 
+{ config, inputs, lib, pkgs, ... }: 
 with lib;
 with lib.internal;
 let
@@ -8,6 +8,15 @@ in {
     enable = mkBoolOpt false "Whether to configure neovim";
   };
   config = mkIf cfg.enable {
-    home.packages = with pkgs; [ neovim ];
+    programs.neovim = {
+      enable = true;
+      viAlias = true;
+      vimAlias = true;
+      defaultEditor = true;
+    };
+    xdg.configFile.nvim = {
+      source = ./nvim;
+      recursive = true;
+    };
   };
 }

@@ -8,6 +8,14 @@ in {
     enable = mkBoolOpt false "Whether to configure networking";
   };
   config = mkIf cfg.enable {
-    networking.networkmanager = enabled;
+    networking = {
+      networkmanager = enabled;
+      firewall = {
+        enable = true;
+        extraCommands = ''
+          iptables -A INPUT -i docker0 -j ACCEPT
+        '';
+      };
+    };
   };
 }
