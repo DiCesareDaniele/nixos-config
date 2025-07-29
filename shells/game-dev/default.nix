@@ -1,10 +1,14 @@
 { pkgs, ... }:
 with pkgs;
+let
+  dotnet = dotnet-sdk_7;
+in
 mkShell rec {
   nativeBuildInputs = [
     pkg-config
   ];
   buildInputs = [
+    dotnet
     udev
     alsa-lib
     zlib
@@ -64,5 +68,6 @@ mkShell rec {
   NIX_LD = lib.fileContents "${stdenv.cc}/nix-support/dynamic-linker";
   shellHook = ''
     export LD_LIBRARY_PATH=$NIX_LD_LIBRARY_PATH
+    export DOTNET_ROOT=${dotnet}
   '';
 }

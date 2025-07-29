@@ -198,8 +198,7 @@ for_window [class="^.*"] border pixel 0
 
 bindsym $mod+p exec ~/.config/rofi/bin/powermenu
 bindsym $mod+n exec networkmanager_dmenu
-# TODO: fix screenshots
-# bindsym $mod+s exec ~/.config/rofi/bin/screenshot
+bindsym $mod+s exec ~/.config/rofi/bin/screenshot
 
 gaps inner 15
 

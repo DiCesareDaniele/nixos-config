@@ -18,5 +18,8 @@ in {
       source = ./nvim;
       recursive = true;
     };
+    home.packages = with pkgs; [
+      xclip
+    ];
   };
 }

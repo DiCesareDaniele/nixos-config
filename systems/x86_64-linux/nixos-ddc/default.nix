@@ -13,7 +13,7 @@ with lib.internal;
   # the following lines are to solve some hidpi problems
   services = {
     xserver = {
-      dpi = 125;
+      dpi = 120;
     };
   };
 

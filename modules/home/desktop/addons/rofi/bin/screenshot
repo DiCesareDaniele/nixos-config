@@ -3,13 +3,11 @@ rofi_command="rofi -theme ~/.config/rofi/config/screenshot.rasi"
 
 time=`date +%Y-%m-%d-%I-%M-%S`
 # geometry=`xrandr | head -n1 | cut -d',' -f2 | tr -d '[:blank:],current'`
-dir="`xdg-user-dir PICTURES`/Screenshots"
+dir="~/Pictures/Screenshots"
+eval dir="$dir"
 # file="Screenshot_${time}_${geometry}.png"
 file="Screenshot_${time}.png"
-
-# Icons
-icon1="~/.config/dunst/icons/collections.svg"
-icon2="~/.config/dunst/icons/timer.svg"
+filepath="${dir}/$file"
 
 # Buttons
 layout=`cat ~/.config/rofi/config/screenshot.rasi | grep BUTTON | cut -d'=' -f2 | tr -d '[:blank:],*/'`
@@ -17,61 +15,23 @@ if [[ "$layout" == "TRUE" ]]; then
 	screen="󰍹"
 	area="󰆞"
 	window="󰖲"
-	infive="󰔝"
-	inten="󰔜"
 else
 	screen="󰍹 Capture Desktop"
 	area="󰆞 Capture Area"
 	window="󰖲 Capture Window"
-	infive="󰔝 Take in 3s"
-	inten="󰔜 Take in 10s"
 fi
-
-# Notify and view screenshot
-notify_view () {
-	dunstify -u low --replace=699 -i $icon1 "Copied to clipboard."
-	viewnior ${dir}/"$file"
-	if [[ -e "$dir/$file" ]]; then
-		dunstify -u low --replace=699 -i $icon1 "Screenshot Saved."
-	else
-		dunstify -u low --replace=699 -i $icon1 "Screenshot Deleted."
-	fi
-}
-
-# countdown
-countdown () {
-	for sec in `seq $1 -1 1`; do
-		dunstify -t 1000 --replace=699 -i $icon2 "Taking shot in : $sec"
-		sleep 1
-	done
-}
 
 # take shots
 shotnow () {
-	cd ${dir} && sleep 0.5 && maim -u -f png | tee "$file" | xclip -selection clipboard -t image/png
-	notify_view
-}
-
-shot5 () {
-	countdown '3'
-	sleep 1 && cd ${dir} && maim -u -f png | tee "$file" | xclip -selection clipboard -t image/png
-	notify_view
-}
-
-shot10 () {
-	countdown '10'
-	sleep 1 && cd ${dir} && maim -u -f png | tee "$file" | xclip -selection clipboard -t image/png
-	notify_view
+	sleep 0.5 && maim -u -f png | tee "$filepath" | xclip -selection clipboard -t image/png
 }
 
 shotwin () {
-	cd ${dir} && maim -u -f png -i `xdotool getactivewindow` | tee "$file" | xclip -selection clipboard -t image/png
-	notify_view
+	maim -u -f png -i `xdotool getactivewindow` | tee "$filepath" | xclip -selection clipboard -t image/png
 }
 
 shotarea () {
-	cd ${dir} && maim -u -f png -s -b 2 -c 0.35,0.55,0.85,0.25 -l | tee "$file" | xclip -selection clipboard -t image/png
-	notify_view
+	maim -u -f png -s -b 2 -c 0.35,0.55,0.85,0.25 -l | tee "$filepath" | xclip -selection clipboard -t image/png
 }
 
 if [[ ! -d "$dir" ]]; then
@@ -91,12 +51,6 @@ case $chosen in
         ;;
     $window)
 		shotwin
-		;;
-    $infive)
-		shot5
-		;;
-    $inten)
-		shot10
-        ;;
+		    ;;
 esac
 

@@ -19,7 +19,9 @@ in {
     home.packages = with pkgs; [
       pamixer
       brightnessctl
-      feh
+      feh 
+      maim
+      xclip
     ];
     xdg.configFile."i3/config".source = ./config;
     xdg.configFile."i3/themes/catppuccin-mocha".source = ./themes/catppuccin-mocha;

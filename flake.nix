@@ -26,6 +26,11 @@
       src = ./.;
       channels-config = {
         allowUnfree = true;
+        permittedInsecurePackages = [
+          "dotnet-sdk-6.0.428"
+          "dotnet-sdk-7.0.410"
+        ];
+        android_sdk.accept_license = true;
       };
       systems.modules.nixos = with inputs; [
         home-manager.nixosModules.home-manager

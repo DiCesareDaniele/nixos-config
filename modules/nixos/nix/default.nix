@@ -11,6 +11,7 @@ in {
       unzip
       vim
       git
+      ripgrep
     ];
 
     nix = {
