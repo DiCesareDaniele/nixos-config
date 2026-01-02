@@ -14,6 +14,7 @@ in {
     cli-apps = {
       home-manager = enabled;
       nvim = enabled;
+      tmux = enabled;
     };
     apps = {
       vscode = enabled;

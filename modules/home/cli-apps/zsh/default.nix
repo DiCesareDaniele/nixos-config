@@ -25,6 +25,7 @@ in {
           ".." = "cd ..";
           "..." = "cd ../..";
         };
+        dotDir = "${config.xdg.configHome}/zsh";
         history = {
           size = 10000;
           ignoreAllDups = true;

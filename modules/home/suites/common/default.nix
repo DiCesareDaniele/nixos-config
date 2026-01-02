@@ -11,5 +11,8 @@ in {
     cli-apps = {
       zsh = enabled;
     };
+    apps = {
+      typst = enabled;
+    };
   };
 }

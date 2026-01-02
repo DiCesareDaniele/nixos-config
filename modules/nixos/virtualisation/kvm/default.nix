@@ -15,7 +15,6 @@ in {
         enable = true;
         # for windows support
         qemu = {
-          ovmf = enabled;
           swtpm = enabled;
         };
       };

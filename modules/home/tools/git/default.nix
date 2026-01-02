@@ -15,9 +15,10 @@ in
   config = mkIf cfg.enable {
     programs.git = {
       enable = true;
-      inherit (cfg) userName userEmail;
       lfs = enabled;
-      extraConfig = {
+      settings = {
+        user.name = cfg.userName;
+        user.email = cfg.userEmail;
         init = {
           defaultBranch = "main";
         };
@@ -33,6 +34,9 @@ in
         url = {
           "ssh://git@github.com/" = {
             insteadOf = "https://github.com/";
+          };
+          "ssh://git@gitlab.com/" = {
+            insteadOf = "https://gitlab.com/";
           };
         };
       };
