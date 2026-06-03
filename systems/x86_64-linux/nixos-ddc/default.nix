@@ -1,21 +1,17 @@
-{ config, lib, pkgs, ... }:
+{ inputs, config, lib, pkgs, ... }:
 with lib;
 with lib.internal;
 {
-  imports =
-    [
-      ./hardware-configuration.nix
-    ];
+  imports = [
+    ./hardware-configuration.nix
+  ];
 
   archetypes = {
     work = enabled;
   };
-  # the following lines are to solve some hidpi problems
-  services = {
-    xserver = {
-      dpi = 120;
-    };
-  };
+
+  # enable bios updates
+  services.fwupd = enabled;
 
   # This option defines the first version of NixOS you have installed on this particular machine,
   # and is used to maintain compatibility with application data (e.g. databases) created on older NixOS versions.

@@ -9,7 +9,7 @@ in {
   };
   config = mkIf cfg.enable {
     desktop = {
-      i3 = enabled;
+      hyprland = enabled;
     };
   };
 }

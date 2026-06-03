@@ -2,17 +2,17 @@
 with lib;
 with lib.internal;
 let
-  cfg = config.desktop.i3;
+  cfg = config.desktop.hyprland;
 in {
-  options.desktop.i3 = {
-    enable = mkBoolOpt false "Whether to configure i3";
+  options.desktop.hyprland = {
+    enable = mkBoolOpt false "Whether to configure hyprland";
   };
   config = mkIf cfg.enable {
     desktop.addons = {
       gtk = enabled;
       alacritty = enabled;
       rofi = enabled;
-      picom = enabled;
+      # picom = enabled;
       polybar = enabled;
       networkmanager-dmenu = enabled;
     };
@@ -23,7 +23,7 @@ in {
       maim
       xclip
     ];
-    xdg.configFile."i3/config".source = ./config;
-    xdg.configFile."i3/themes/catppuccin-mocha".source = ./themes/catppuccin-mocha;
+    xdg.configFile."hypr/hyprland.lua".source = ./hyprland.lua;
+    # xdg.configFile."i3/themes/catppuccin-mocha".source = ./themes/catppuccin-mocha;
   };
 }
