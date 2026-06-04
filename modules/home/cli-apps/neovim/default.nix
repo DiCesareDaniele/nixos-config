@@ -13,6 +13,8 @@ in {
       viAlias = true;
       vimAlias = true;
       defaultEditor = true;
+      withRuby = false;
+      withPython3 = false;
     };
     xdg.configFile.nvim = {
       source = ./nvim;

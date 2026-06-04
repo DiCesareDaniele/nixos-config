@@ -10,6 +10,7 @@ in {
   config = mkIf cfg.enable {
     hardware = {
       audio = enabled;
+      battery = enabled;
       bluetooth = enabled;
       networking = enabled;
     };

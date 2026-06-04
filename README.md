@@ -8,3 +8,7 @@ built with [snowfall framework](https://github.com/snowfallorg/lib)
 - tmux
 - zsh
 - desktop
+- get rid of rofi
+- fix inconsistent fonts
+- themes
+

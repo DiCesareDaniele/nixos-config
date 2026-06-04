@@ -1,24 +1,30 @@
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
-import qs.modules.bar
+import qs.modules.bar.widgets
+import qs.utils
 
 PanelWindow {
+
+  readonly property real barHeight: Style.barHeight
+  readonly property real barMargin: Style.marginM
+
+  implicitHeight: barHeight
+
   anchors {
     top: true
     left: true
     right: true
   }
 
-  color: "transparent"
-
-  implicitHeight: 30
-
   margins {
-    top: 10
-    left: 10
-    right: 10
+    top: barMargin
+    left: barMargin
+    right: barMargin
+    bottom: 0
   }
+
+  color: "transparent"
 
   Item {
     anchors.fill: parent
@@ -37,11 +43,13 @@ PanelWindow {
       Island{}
     }
 
+    // Right Section
     RowLayout {
       anchors.right: parent.right
 
-      Battery {}
       Volume {}
+      Brightness {}
+      Battery {}
     }
   }
 }

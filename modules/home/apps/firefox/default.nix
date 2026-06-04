@@ -8,6 +8,9 @@ in {
     enable = mkBoolOpt false "Whether to configure firefox";
   };
   config = mkIf cfg.enable {
-    programs.firefox = enabled;
+    programs.firefox = {
+      enable = true;
+      configPath = "${config.xdg.configHome}/mozilla/firefox";
+    };
   };
 }
