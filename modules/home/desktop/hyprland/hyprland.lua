@@ -25,7 +25,8 @@ local terminal    = "alacritty"
 -------------------
 
 hl.on("hyprland.start", function ()
-  -- TODO: hl.exec_cmd("...")
+  hl.exec_cmd("awww-daemon & sleep 1 && awww img ~/Pictures/wallpaper.jpg")
+  hl.exec_cmd("quickshell")
 end)
 
 -------------------------------
@@ -150,8 +151,8 @@ hl.config({
 
 hl.config({
     misc = {
-        force_default_wallpaper = -1,    -- Set to 0 or 1 to disable the anime mascot wallpapers
-        disable_hyprland_logo   = false, -- If true disables the random hyprland logo / anime girl background. :(
+        force_default_wallpaper = 0,
+        disable_hyprland_logo   = true,
     },
 })
 
@@ -198,6 +199,10 @@ hl.bind(mainMod .. " + M", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/null 2
 -- hl.bind(mainMod .. " + R", hl.dsp.exec_cmd(menu))
 -- hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 -- hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))
+hl.bind(mainMod .. " + D", hl.dsp.exec_cmd("~/.config/rofi/bin/launcher"))
+hl.bind(mainMod .. " + P", hl.dsp.exec_cmd("~/.config/rofi/bin/powermenu"))
+hl.bind(mainMod .. " + N", hl.dsp.exec_cmd("networkmanager_dmenu"))
+hl.bind(mainMod .. " + S", hl.dsp.exec_cmd("~/.config/rofi/bin/screenshot"))
 
 hl.bind(mainMod .. " + H",  hl.dsp.focus({ direction = "left" }))
 hl.bind(mainMod .. " + L", hl.dsp.focus({ direction = "right" }))
@@ -209,10 +214,6 @@ for i = 1, 10 do
     hl.bind(mainMod .. " + " .. key,             hl.dsp.focus({ workspace = i}))
     hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i }))
 end
-
--- Scroll through existing workspaces with mainMod + scroll
-hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
-hl.bind(mainMod .. " + mouse_up",   hl.dsp.focus({ workspace = "e-1" }))
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })

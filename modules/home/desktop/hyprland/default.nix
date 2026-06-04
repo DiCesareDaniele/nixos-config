@@ -13,16 +13,25 @@ in {
       alacritty = enabled;
       rofi = enabled;
       # picom = enabled;
-      polybar = enabled;
+      # polybar = enabled;
+      quickshell = enabled;
       networkmanager-dmenu = enabled;
     };
     home.packages = with pkgs; [
-      pamixer
+      playerctl
       brightnessctl
-      feh 
       maim
       xclip
+      awww
     ];
+    home.pointerCursor = {
+      package = pkgs.bibata-cursors;
+      name = "Bibata-Modern-Classic";
+      size = 24;
+      x11 = enabled;
+      gtk = enabled;
+      hyprcursor = enabled;
+    };
     xdg.configFile."hypr/hyprland.lua".source = ./hyprland.lua;
     # xdg.configFile."i3/themes/catppuccin-mocha".source = ./themes/catppuccin-mocha;
   };

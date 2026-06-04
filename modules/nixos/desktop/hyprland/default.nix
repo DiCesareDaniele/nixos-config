@@ -21,8 +21,8 @@ in {
     environment.sessionVariables = {
       NIXOS_OZONE_WL = "1";
 
-      GDK_SCALE = "2";
-      GDK_DPI_SCALE = "0.5";
+      GDK_SCALE = "1";
+      GDK_DPI_SCALE = "1";
 
       QT_AUTO_SCREEN_SCALE_FACTOR = "1";
       QT_SCALE_FACTOR = "1";
