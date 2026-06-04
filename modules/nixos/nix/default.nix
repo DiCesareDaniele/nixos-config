@@ -8,6 +8,7 @@ in {
     environment.systemPackages = with pkgs; [
       wget
       gcc
+      zip
       unzip
       vim
       git

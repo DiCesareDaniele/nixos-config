@@ -13,7 +13,7 @@ in {
       profiles.default.extensions = with pkgs.vscode-extensions; [
         jnoortheen.nix-ide
         vscodevim.vim
-	ms-azuretools.vscode-docker
+        ms-azuretools.vscode-docker
         rust-lang.rust-analyzer
         tamasfe.even-better-toml
         golang.go
