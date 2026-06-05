@@ -33,6 +33,6 @@ in {
       hyprcursor = enabled;
     };
     xdg.configFile."hypr/hyprland.lua".source = ./hyprland.lua;
-    # xdg.configFile."i3/themes/catppuccin-mocha".source = ./themes/catppuccin-mocha;
+    xdg.configFile."hypr/colors.lua".source = ./colors.lua;
   };
 }

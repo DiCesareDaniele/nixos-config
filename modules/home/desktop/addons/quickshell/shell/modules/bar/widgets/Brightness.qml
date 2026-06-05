@@ -11,18 +11,15 @@ Item {
   BarPill {
     anchors.centerIn: parent
     icon: {
-      if (AudioService.muted) {
-        return "md-volume_mute";
-      }
-      const audio = AudioService.percent
-      if (audio >= 66) {
-        return "md-volume_high";
-      } else if (audio >= 33) {
-        return "md-volume_medium";
-      } else if (audio > 0) {
-        return "md-volume_low";
+      const brightness = BrightnessService.percent
+      if (brightness >= 75) {
+        return "md-brightness_7";
+      } else if (brightness >= 50) {
+        return "md-brightness_4";
+      } else if (brightness >= 25) {
+        return "md-brightness_6";
       } else {
-        return "md-volume_off";
+        return "md-brightness_5";
       }
     }
   }

@@ -13,6 +13,6 @@ in {
       "TERMINAL" = "alacritty";
     };
     xdg.configFile."alacritty/alacritty.toml".source = ./alacritty.toml;
-    xdg.configFile."alacritty/themes/catppuccin-mocha.toml".source = ./themes/catppuccin-mocha.toml;
+    xdg.configFile."alacritty/colors.toml".source = ./colors.toml;
   };
 }

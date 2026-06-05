@@ -1,17 +1,18 @@
 import QtQuick
 import Quickshell
 import Quickshell.Hyprland
+import qs.widgets
+import qs.utils
 
 Rectangle {
-  radius: 14
-  height: 30
-  color: "transparent"
-
-  width: child.width
+  height: Style.capsuleHeight
+  width: child.width + 2 * Style.marginXXS
+  radius: height / 2
+  color: Color.mSurface
 
   Row {
+    anchors.centerIn: parent
     id: child
-    spacing: 6
 
     Repeater {
       model: 10
@@ -28,23 +29,15 @@ Rectangle {
           return currWorkspace() === ws
         }
 
-        width: 28
-        height: 24
-        radius: 6
+        height: Style.capsuleHeight * 0.8
+        width: Style.capsuleHeight * 0.8
+        anchors.verticalCenter: parent.verticalCenter
+        color: "transparent"
 
-        color: isActive()
-          ? "#3b82f6"
-          : "#222222"
-
-        border.color: isActive()
-          ? "#60a5fa"
-          : "transparent"
-
-        Text {
+        Icon {
           anchors.centerIn: parent
-          text: ws 
-          color: "white"
-          font.bold: isActive()
+          color: isActive() ? Color.mOnSurface : "gray"
+          icon: isActive() ? "md-stop_circle" : "md-circle_medium"
         }
 
         MouseArea {

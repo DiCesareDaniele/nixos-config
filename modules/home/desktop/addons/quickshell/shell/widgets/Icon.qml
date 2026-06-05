@@ -4,6 +4,8 @@ import QtQuick.Layouts
 import qs.utils
 
 Text {
+  id: root
+
   property string icon: Icons.defaultIcon
   property real pointSize: Style.fontSizeL
   property bool applyUiScale: true
@@ -24,6 +26,6 @@ Text {
   font.family: Icons.fontFamily
   font.pointSize: Math.max(1, applyUiScale ? root.pointSize * Style.uiScaleRatio : root.pointSize)
   color: Color.mOnSurface
-  verticalAlignment: Text.AlignVCenter
-  horizontalAlignment: Text.AlignHCenter
+  // verticalAlignment: Text.AlignVCenter
+  // horizontalAlignment: Text.AlignHCenter
 }

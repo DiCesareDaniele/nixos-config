@@ -10,10 +10,7 @@ in {
   config = mkIf cfg.enable {
     programs = {
       fzf = enabled; 
-      oh-my-posh = {
-        enable = true;
-        useTheme = "catppuccin_mocha";
-      };
+      starship = enabled;
       zsh = {
         enable = true;
         enableCompletion = true;
@@ -36,8 +33,8 @@ in {
             src = pkgs.fetchFromGitHub {
               owner = "Aloxaf";
               repo = "fzf-tab";
-              rev = "6aced3f35def61c5edf9d790e945e8bb4fe7b305";
-              sha256 = "EWMeslDgs/DWVaDdI9oAS46hfZtp4LHTRY8TclKTNK8=";
+              rev = "v1.3.0";
+              sha256 = "sha256-8atbysoOyCBW2OYKmdc91x9V/Mk3eyg3hvzvhJpQ32w=";
             };
           }
         ];
@@ -57,6 +54,8 @@ in {
           zstyle ':fzf-tab:complete:ls:*' fzf-preview 'ls --color $realpath'
           # switch group using `<` and `>`
           zstyle ':fzf-tab:*' switch-group '<' '>'
+
+          eval "$(starship init zsh)"
         '';
       };
     };

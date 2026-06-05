@@ -15,7 +15,7 @@ Item {
   Rectangle {
     width: root.width
     height: root.height
-    radius: root.width / 2
+    radius: Style.radiusS
     color: Color.mSurface
     anchors.centerIn: parent
 

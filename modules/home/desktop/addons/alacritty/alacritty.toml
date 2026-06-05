@@ -1,5 +1,5 @@
 general.import = [
-    "~/.config/alacritty/themes/catppuccin-mocha.toml"
+    "~/.config/alacritty/colors.toml"
 ]
 
 general.live_config_reload = true
@@ -63,7 +63,7 @@ opacity = 0.95
 decorations = "full"
 dynamic_title = true
 option_as_alt = "Both"
-#startup_mode = "Maximized"
+# startup_mode = "Maximized"
 
 [window.dimensions]
 columns = 160

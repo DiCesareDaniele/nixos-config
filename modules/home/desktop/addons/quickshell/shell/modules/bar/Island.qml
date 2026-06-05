@@ -1,17 +1,19 @@
 import QtQuick
 import Quickshell
+import qs.utils
 import qs.services
 
 Rectangle {
-  width: 200
-  height: 30
-  radius: 15
-  color: "black"
+  // TODO: do not hardcode this value
+  width: 250
+  height: Style.capsuleHeight
+  radius: height / 2
+  color: Color.mSurface
 
   Text {
     anchors.centerIn: parent
 
     text: DateTimeService.time
-    color: "white"
+    color: Color.mOnSurface
   }
 }
