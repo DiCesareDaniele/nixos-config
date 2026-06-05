@@ -1,13 +1,14 @@
 #!/usr/bin/env bash
 
 DIRS=(
-  "$HOME"
+  "$HOME/work"
+  "$HOME/uni"
 )
 
 if [[ $# -eq 1 ]]; then
   selected=$1
 else
-  selected=$(find . "${DIRS[@]}" -type d -mindepth 1 -maxdepth 1 \
+  selected=$(find "${DIRS[@]}" . -type d -mindepth 1 -maxdepth 1 \
     | sed "s|^$HOME/||" \
     | fzf --margin 10% --color="bw")
 

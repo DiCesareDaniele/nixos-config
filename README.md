@@ -5,7 +5,6 @@ built with [snowfall framework](https://github.com/snowfallorg/lib)
 
 # FIX 
 - nvim
-- tmux
 - desktop
 - get rid of rofi
 - fix inconsistent fonts

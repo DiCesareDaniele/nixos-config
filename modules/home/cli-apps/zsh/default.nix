@@ -9,7 +9,10 @@ in {
   };
   config = mkIf cfg.enable {
     programs = {
-      fzf = enabled; 
+      fzf = {
+        enable = true;
+        defaultOptions = ["--bind tab:up,shift-tab:down"];
+      };
       starship = enabled;
       zsh = {
         enable = true;
