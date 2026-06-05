@@ -35,22 +35,22 @@ Singleton {
   QtObject {
     id: defaultColors
 
-    readonly property color base00: "#101010"
-    readonly property color base01: "#252525"
-    readonly property color base02: "#464646"
-    readonly property color base03: "#525252"
-    readonly property color base04: "#ababab"
-    readonly property color base05: "#b9b9b9"
-    readonly property color base06: "#e3e3e3"
-    readonly property color base07: "#f7f7f7"
-    readonly property color base08: "#7c7c7c"
-    readonly property color base09: "#999999"
-    readonly property color base0A: "#a0a0a0"
-    readonly property color base0B: "#8e8e8e"
-    readonly property color base0C: "#868686"
-    readonly property color base0D: "#686868"
-    readonly property color base0E: "#747474"
-    readonly property color base0F: "#5e5e5e"
+    readonly property color base00: "#000000"
+    readonly property color base01: "#121212"
+    readonly property color base02: "#222222"
+    readonly property color base03: "#333333"
+    readonly property color base04: "#999999"
+    readonly property color base05: "#c1c1c1"
+    readonly property color base06: "#999999"
+    readonly property color base07: "#c1c1c1"
+    readonly property color base08: "#5f8787"
+    readonly property color base09: "#aaaaaa"
+    readonly property color base0A: "#79241f"
+    readonly property color base0B: "#f8f7f2"
+    readonly property color base0C: "#aaaaaa"
+    readonly property color base0D: "#888888"
+    readonly property color base0E: "#999999"
+    readonly property color base0F: "#444444"
 
     readonly property color mPrimary: base05
     readonly property color mOnPrimary: base00
