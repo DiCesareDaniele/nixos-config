@@ -1,0 +1,2 @@
+-- TODO: hover behaviour
+-- vim.keymap.set("n", "K", vim.lsp.buf.hover, { buffer = buf, desc = "Hover" })

@@ -21,7 +21,7 @@ in {
       playerctl
       brightnessctl
       maim
-      xclip
+      wl-clipboard
       awww
     ];
     home.pointerCursor = {

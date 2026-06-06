@@ -13,15 +13,18 @@ in {
       viAlias = true;
       vimAlias = true;
       defaultEditor = true;
+
       withRuby = false;
       withPython3 = false;
     };
-    xdg.configFile.nvim = {
-      source = ./nvim;
-      recursive = true;
-    };
+    xdg.configFile.nvim = { source = ./nvim; recursive = true; };
     home.packages = with pkgs; [
-      xclip
+      wl-clipboard
+      cmake
+      tree-sitter
     ];
+    programs.zsh.shellAliases = {
+      clip = "wl-copy";
+    };
   };
 }
