@@ -1,57 +1,24 @@
+local function require_servers()
+  local servers = {}
+  local lsp_dir = vim.fn.stdpath("config") .. "/lua/plugins/lsp"
+  local pattern = "%.lua$"
+  for file, ft in vim.fs.dir(lsp_dir) do
+    if (ft == "file" or ft == "link") and file:match(pattern) then
+      local mod = "plugins.lsp." .. file:gsub(pattern, "")
+      local ok, tbl = pcall(require, mod)
+      if ok and type(tbl) == "table" then
+        servers = vim.tbl_deep_extend("force", servers, tbl)
+      end
+    end
+  end
+  return servers
+end
+
 return {
   {
     "neovim/nvim-lspconfig",
     config = function()
-      local servers = {
-        rust_analyzer = {
-          settings = {
-            ["rust-analyzer"] = {
-              cargo = {
-                allFeatures = true,
-              },
-            },
-          },
-        },
-        lua_ls = {
-          on_init = function(client)
-            if client.workspace_folders then
-              local path = client.workspace_folders[1].name
-              if
-                path ~= vim.fn.stdpath("config")
-                and (vim.uv.fs_stat(path .. "/.luarc.json") or vim.uv.fs_stat(path .. "/.luarc.jsonc"))
-              then
-                return
-              end
-            end
-
-            client.config.settings.Lua = vim.tbl_deep_extend("force", client.config.settings.Lua, {
-              runtime = {
-                -- Tell the language server which version of Lua you're using (most
-                -- likely LuaJIT in the case of Neovim)
-                version = "LuaJIT",
-                -- Tell the language server how to find Lua modules same way as Neovim
-                -- (see `:h lua-module-load`)
-                path = {
-                  "lua/?.lua",
-                  "lua/?/init.lua",
-                },
-              },
-              -- Make the server aware of Neovim runtime files
-              workspace = {
-                checkThirdParty = false,
-                library = {
-                  vim.env.VIMRUNTIME,
-                  -- For LSP Settings Type Annotations: https://github.com/neovim/nvim-lspconfig#lsp-settings-type-annotations
-                  vim.api.nvim_get_runtime_file("lua/lspconfig", false)[1],
-                },
-              },
-            })
-          end,
-          settings = {
-            Lua = {},
-          },
-        },
-      }
+      local servers = require_servers()
       for server, opts in pairs(servers) do
         vim.lsp.config(server, opts)
         vim.lsp.enable(server)
