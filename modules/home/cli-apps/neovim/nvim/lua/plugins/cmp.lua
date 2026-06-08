@@ -1,38 +1,32 @@
 return {
   {
     "saghen/blink.cmp",
-    -- TODO: upgrade to version 2
-    version = "1.*",
+    version = "1.*", -- TODO: upgrade to version 2
     dependencies = {
       "rafamadriz/friendly-snippets",
     },
+    lazy = true,
+    event = "InsertEnter",
     opts = {
+      keymap = {
+        preset = "default",
+      },
+
+      appearance = {
+        nerd_font_variant = "mono",
+      },
+
       completion = {
-        keyword = { range = "full" },
-
-        accept = { auto_brackets = { enabled = false } },
-
-        list = { selection = { preselect = false, auto_insert = true } },
-
-        menu = {
-          auto_show = true,
-
-          draw = {
-            columns = {
-              { "label", "label_description", gap = 1 },
-              { "kind_icon", "kind" },
-            },
-          },
-        },
-
         documentation = { auto_show = true, auto_show_delay_ms = 500 },
-
-        ghost_text = { enabled = true },
       },
 
       sources = {
         default = { "lsp", "path", "snippets", "buffer" },
       },
+
+      fuzzy = { implementation = "prefer_rust_with_warning" },
+
+      signature = { enabled = true },
     },
   },
 }

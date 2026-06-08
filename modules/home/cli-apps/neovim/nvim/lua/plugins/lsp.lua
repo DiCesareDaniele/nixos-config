@@ -17,6 +17,7 @@ end
 return {
   {
     "neovim/nvim-lspconfig",
+    lazy = false,
     config = function()
       local servers = require_servers()
       for server, opts in pairs(servers) do

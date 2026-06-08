@@ -1,5 +1,5 @@
-require("config.keymaps")
 require("config.options")
-require("config.ui")
+require("config.keymaps")
+require("config.diagnostics")
 
 require("config.lazy")

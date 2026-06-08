@@ -37,31 +37,15 @@ vim.o.confirm = true
 
 vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
 
--- TOOD: how do I make this 2 spaces for e.g. lua files
 vim.o.tabstop = 4
 vim.o.expandtab = true
 vim.o.softtabstop = 4
 vim.o.shiftwidth = 4
 
-vim.diagnostic.config({
-  update_in_insert = false,
-  severity_sort = true,
-  float = { border = "rounded", source = "if_many" },
-  underline = { severity = { min = vim.diagnostic.severity.WARN } },
-
-  virtual_text = true, -- Text shows up at the end of the line
-  virtual_lines = false, -- Text shows up underneath the line, with virtual lines
-
-  -- Auto open the float, so you can easily read the errors when jumping with `[d` and `]d`
-  jump = {
-    on_jump = function(_, bufnr)
-      vim.diagnostic.open_float({
-        bufnr = bufnr,
-        scope = "cursor",
-        focus = false,
-      })
-    end,
-  },
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight when yanking (copying) text",
+  group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
+  callback = function()
+    vim.hl.on_yank()
+  end,
 })
-
-vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic Quickfix list" })

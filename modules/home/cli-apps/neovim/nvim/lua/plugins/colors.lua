@@ -1,5 +1,3 @@
--- TODO: there is a split second when I load the plugins in which the default colorscheme is visible
---  also I feel like I am not making good use of the lazyloading capabilities of lazy.nvim
 return {
   {
     "RRethy/base16-nvim",
@@ -27,7 +25,7 @@ return {
       require("base16-colorscheme").setup(base)
 
       local highlights = {
-        -- TODO: I am not using nvim-cmp
+        -- TODO: switch to blink.cmp
         -- nvim-cmp
         -- CmpItemKindSnippet = { fg = base.base01, bg = base.base0E },
         -- CmpItemKindKeyword = { fg = base.base01, bg = base.base08 },
@@ -70,8 +68,9 @@ return {
         TelescopeResultsTitle = { fg = base.base00 },
         TelescopePreviewTitle = { bg = base.base0B, fg = base.base00 },
 
-        -- lsp
-        NormalFloat = { bg = base.base01 },
+        -- Transparent background
+        Normal = { bg = "none" },
+        NormalFloat = { bg = "none" },
       }
 
       -- Apply highlights
