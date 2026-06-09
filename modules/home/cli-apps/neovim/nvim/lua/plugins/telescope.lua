@@ -24,13 +24,13 @@ return {
           vim.keymap.set("n", "gi", builtin.lsp_implementations, { buffer = buf, desc = "Goto implementation" })
           vim.keymap.set("n", "gd", builtin.lsp_definitions, { buffer = buf, desc = "Goto definition" })
           vim.keymap.set("n", "gs", builtin.lsp_document_symbols, { buffer = buf, desc = "Open document symbols" })
+          vim.keymap.set("n", "gt", builtin.lsp_type_definitions, { buffer = buf, desc = "Goto type definition" })
           vim.keymap.set(
             "n",
             "gw",
             builtin.lsp_dynamic_workspace_symbols,
             { buffer = buf, desc = "Open workspace symbols" }
           )
-          vim.keymap.set("n", "gt", builtin.lsp_type_definitions, { buffer = buf, desc = "Goto type definition" })
         end,
       })
     end,

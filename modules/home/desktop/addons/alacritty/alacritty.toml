@@ -59,7 +59,7 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 program = "zsh"
 
 [window]
-opacity = 0.85
+opacity = 0.80
 decorations = "full"
 dynamic_title = true
 option_as_alt = "Both"

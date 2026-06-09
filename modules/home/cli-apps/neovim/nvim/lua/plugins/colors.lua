@@ -70,6 +70,7 @@ return {
 
         -- Transparent background
         Normal = { bg = "none" },
+        NormalNC = { bg = "none" },
         NormalFloat = { bg = "none" },
       }
 

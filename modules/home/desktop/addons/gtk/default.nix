@@ -3,21 +3,45 @@ with lib;
 with lib.internal;
 let
   cfg = config.desktop.addons.gtk;
-  theme = {
-    name = cfg.theme;
+  gtk = {
+    colorScheme = "dark";
+
+    theme = {
+      package = pkgs.adw-gtk3;
+      name = "adw-gtk3-dark";
+    };
+
+    iconTheme = {
+      name = "Papirus";
+      package = pkgs.papirus-icon-theme;
+    };
+
+    font = {
+      name = "JetBrainsMono Nerd Font";
+      package = pkgs.nerd-fonts.jetbrains-mono;
+    };
+
+    # already set in modules/home/desktop/hyprland/default.nix
+    # cursor = { ... };
   };
 in {
   options.desktop.addons.gtk = with types; {
     enable = mkBoolOpt false "Whether to configure gtk";
-    theme = mkOpt str "Adwaita-dark" "The gtk theme name";
   };
   config = mkIf cfg.enable {
     gtk = {
       enable = true;
-      inherit theme;
-      gtk2.theme = theme;
-      gtk3.theme = theme;
-      gtk4.theme = theme;
+
+      inherit (gtk) theme iconTheme;
+
+      gtk3 = gtk;
+      gtk4 = gtk;
+
+      # TODO: build css file
+      # xdg.configFile = {
+      #   "gtk-3.0/gtk.css".source = finalCss;
+      #   "gtk-4.0/gtk.css".source = finalCss;
+      # };
     };
   };
 }

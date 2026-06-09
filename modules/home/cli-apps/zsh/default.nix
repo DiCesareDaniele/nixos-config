@@ -29,6 +29,11 @@ in {
         history = {
           size = 10000;
           ignoreAllDups = true;
+          ignoreDups = true;
+          saveNoDups = true;
+          findNoDups = true;
+          append = true;
+          share = true;
         };
         plugins = [
           {
@@ -42,6 +47,9 @@ in {
           }
         ];
         initContent = '' 
+          bindkey '^p' history-search-backward
+          bindkey '^n' history-search-forward
+
           zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
           # disable sort when completing `git checkout`
           zstyle ':completion:*:git-checkout:*' sort false
