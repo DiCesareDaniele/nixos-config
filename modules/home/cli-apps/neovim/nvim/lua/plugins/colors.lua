@@ -22,60 +22,353 @@ return {
         base0E = "#999999",
         base0F = "#444444",
       }
-      require("base16-colorscheme").setup(base)
 
-      local highlights = {
-        -- TODO: switch to blink.cmp
-        -- nvim-cmp
-        -- CmpItemKindSnippet = { fg = base.base01, bg = base.base0E },
-        -- CmpItemKindKeyword = { fg = base.base01, bg = base.base08 },
-        -- CmpItemKindText = { fg = base.base01, bg = base.base0C },
-        -- CmpItemKindMethod = { fg = base.base01, bg = base.base0D },
-        -- CmpItemKindConstructor = { fg = base.base01, bg = base.base0D },
-        -- CmpItemKindFunction = { fg = base.base01, bg = base.base0D },
-        -- CmpItemKindFolder = { fg = base.base01, bg = base.base0D },
-        -- CmpItemKindModule = { fg = base.base01, bg = base.base0D },
-        -- CmpItemKindConstant = { fg = base.base01, bg = base.base0A },
-        -- CmpItemKindField = { fg = base.base01, bg = base.base0B },
-        -- CmpItemKindProperty = { fg = base.base01, bg = base.base0B },
-        -- CmpItemKindEnum = { fg = base.base01, bg = base.base0B },
-        -- CmpItemKindUnit = { fg = base.base01, bg = base.base0B },
-        -- CmpItemKindClass = { fg = base.base01, bg = base.base09 },
-        -- CmpItemKindVariable = { fg = base.base01, bg = base.base0F },
-        -- CmpItemKindFile = { fg = base.base01, bg = base.base0D },
-        -- CmpItemKindInterface = { fg = base.base01, bg = base.base09 },
-        -- CmpItemKindColor = { fg = base.base01, bg = base.base08 },
-        -- CmpItemKindReference = { fg = base.base01, bg = base.base08 },
-        -- CmpItemKindEnumMember = { fg = base.base01, bg = base.base08 },
-        -- CmpItemKindStruct = { fg = base.base01, bg = base.base0D },
-        -- CmpItemKindValue = { fg = base.base01, bg = base.base0A },
-        -- CmpItemKindEvent = { fg = base.base01, bg = base.base0D },
-        -- CmpItemKindOperator = { fg = base.base01, bg = base.base0D },
-        -- CmpItemKindTypeParameter = { fg = base.base01, bg = base.base0D },
-        -- CmpItemKindCopilot = { fg = base.base01, bg = base.base0C },
+      local base16 = require("base16-colorscheme")
+      base16.setup(base, {
+        telescope = true,
+        telescope_borders = true,
+      })
 
-        -- Telescope
-        TelescopeMatching = { fg = base.base0E },
-        TelescopeSelection = { fg = base.base05, bg = base.base01, bold = true },
-        TelescopePromptPrefix = { fg = base.base08 },
-        TelescopePromptNormal = { bg = base.base01 },
-        TelescopeResultsNormal = { bg = base.base00 },
-        TelescopePreviewNormal = { bg = base.base00 },
-        TelescopePromptBorder = { bg = base.base01, fg = base.base01 },
-        TelescopeResultsBorder = { bg = base.base00, fg = base.base00 },
-        TelescopePreviewBorder = { bg = base.base00, fg = base.base00 },
-        TelescopePromptTitle = { bg = base.base08, fg = base.base00 },
-        TelescopeResultsTitle = { fg = base.base00 },
-        TelescopePreviewTitle = { bg = base.base0B, fg = base.base00 },
+      --  waiting for https://github.com/RRethy/base16-nvim/pull/115 to be approved
+      local hi = base16.highlight
+      hi.BlinkCmpMenu = {
+        guifg = base.base05,
+        guibg = base.base01,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm05,
+        ctermbg = base.cterm01,
+      }
+      hi.BlinkCmpMenuBorder = {
+        guifg = base.base05,
+        guibg = base.base00,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm05,
+        ctermbg = base.cterm00,
+      }
+      hi.BlinkCmpMenuSelection = {
+        guifg = base.base05,
+        guibg = base.base02,
+        gui = "bold",
+        guisp = nil,
+        ctermfg = base.cterm05,
+        ctermbg = base.cterm02,
+      }
+      hi.BlinkCmpScrollBarThumb = {
+        guifg = nil,
+        guibg = base.base03,
+        gui = nil,
+        guisp = nil,
+        ctermfg = nil,
+        ctermbg = base.cterm03,
+      }
+      hi.BlinkCmpScrollBarGutter = {
+        guifg = nil,
+        guibg = base.base01,
+        gui = nil,
+        guisp = nil,
+        ctermfg = nil,
+        ctermbg = base.cterm01,
+      }
+      hi.BlinkCmpLabel = {
+        guifg = base.base05,
+        guibg = nil,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm05,
+        ctermbg = nil,
+      }
+      hi.BlinkCmpLabelDeprecated = {
+        guifg = base.base03,
+        guibg = nil,
+        gui = "strikethrough",
+        guisp = nil,
+        ctermfg = base.cterm03,
+        ctermbg = nil,
+      }
+      hi.BlinkCmpLabelMatch = {
+        guifg = base.base0D,
+        guibg = nil,
+        gui = "bold",
+        guisp = nil,
+        ctermfg = base.cterm0D,
+        ctermbg = nil,
+      }
+      hi.BlinkCmpLabelMatch = {
+        guifg = base.base04,
+        guibg = nil,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm04,
+        ctermbg = nil,
+      }
+      hi.BlinkCmpLabelDescription = {
+        guifg = base.base04,
+        guibg = nil,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm04,
+        ctermbg = nil,
+      }
+      hi.BlinkCmpKind = {
+        guifg = base.base05,
+        guibg = nil,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm05,
+        ctermbg = nil,
+      }
+      hi.BlinkCmpKindKeyword = {
+        guifg = base.base0E,
+        guibg = nil,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm0E,
+        ctermbg = nil,
+      }
+      hi.BlinkCmpKindVariable = {
+        guifg = base.base08,
+        guibg = nil,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm08,
+        ctermbg = nil,
+      }
+      hi.BlinkCmpKindConstant = {
+        guifg = base.base09,
+        guibg = nil,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm09,
+        ctermbg = nil,
+      }
+      hi.BlinkCmpKindReference = {
+        guifg = base.base08,
+        guibg = nil,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm08,
+        ctermbg = nil,
+      }
+      hi.BlinkCmpKindValue = {
+        guifg = base.base09,
+        guibg = nil,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm09,
+        ctermbg = nil,
+      }
+      hi.BlinkCmpKindFunction = {
+        guifg = base.base0D,
+        guibg = nil,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm0D,
+        ctermbg = nil,
+      }
+      hi.BlinkCmpKindMethod = {
+        guifg = base.base0D,
+        guibg = nil,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm0D,
+        ctermbg = nil,
+      }
+      hi.BlinkCmpKindConstructor = {
+        guifg = base.base0D,
+        guibg = nil,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm0D,
+        ctermbg = nil,
+      }
+      hi.BlinkCmpKindClass = {
+        guifg = base.base0A,
+        guibg = nil,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm0A,
+        ctermbg = nil,
+      }
+      hi.BlinkCmpKindInterface = {
+        guifg = base.base0A,
+        guibg = nil,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm0A,
+        ctermbg = nil,
+      }
+      hi.BlinkCmpKindStruct = {
+        guifg = base.base0A,
+        guibg = nil,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm0A,
+        ctermbg = nil,
+      }
+      hi.BlinkCmpKindEvent = {
+        guifg = base.base0A,
+        guibg = nil,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm0A,
+        ctermbg = nil,
+      }
+      hi.BlinkCmpKindEnum = {
+        guifg = base.base0A,
+        guibg = nil,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm0A,
+        ctermbg = nil,
+      }
+      hi.BlinkCmpKindUnit = {
+        guifg = base.base0A,
+        guibg = nil,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm0A,
+        ctermbg = nil,
+      }
+      hi.BlinkCmpKindModule = {
+        guifg = base.base05,
+        guibg = nil,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm05,
+        ctermbg = nil,
+      }
+      hi.BlinkCmpKindProperty = {
+        guifg = base.base08,
+        guibg = nil,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm08,
+        ctermbg = nil,
+      }
+      hi.BlinkCmpKindField = {
+        guifg = base.base08,
+        guibg = nil,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm08,
+        ctermbg = nil,
+      }
+      hi.BlinkCmpKindTypeParameter = {
+        guifg = base.base0A,
+        guibg = nil,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm0A,
+        ctermbg = nil,
+      }
+      hi.BlinkCmpKindEnumMember = {
+        guifg = base.base0A,
+        guibg = nil,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm0A,
+        ctermbg = nil,
+      }
+      hi.BlinkCmpKindOperator = {
+        guifg = base.base05,
+        guibg = nil,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm05,
+        ctermbg = nil,
+      }
+      hi.BlinkCmpKindSnippet = {
+        guifg = base.base04,
+        guibg = nil,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm04,
+        ctermbg = nil,
+      }
+      hi.BlinkCmpSource = {
+        guifg = base.base04,
+        guibg = nil,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm04,
+        ctermbg = nil,
+      }
+      hi.BlinkCmpGhostText = {
+        guifg = base.base03,
+        guibg = nil,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm03,
+        ctermbg = nil,
+      }
+      hi.BlinkCmpDoc = {
+        guifg = base.base05,
+        guibg = base.base00,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm05,
+        ctermbg = base.cterm00,
+      }
+      hi.BlinkCmpDocBorder = {
+        guifg = base.base05,
+        guibg = base.base00,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm05,
+        ctermbg = base.cterm00,
+      }
+      hi.BlinkCmpDocSeparator = {
+        guifg = base.base03,
+        guibg = nil,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm03,
+        ctermbg = nil,
+      }
+      hi.BlinkCmpDocCursorLine = {
+        guifg = nil,
+        guibg = base.base02,
+        gui = nil,
+        guisp = nil,
+        ctermfg = nil,
+        ctermbg = base.cterm02,
+      }
+      hi.BlinkCmpSignatureHelp = {
+        guifg = base.base05,
+        guibg = base.base00,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm05,
+        ctermbg = base.cterm00,
+      }
+      hi.BlinkCmpSignatureHelpBorder = {
+        guifg = base.base05,
+        guibg = base.base00,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm05,
+        ctermbg = base.cterm00,
+      }
+      hi.BlinkCmpSignatureHelpActiveParameter = {
+        guifg = base.base0D,
+        guibg = base.base02,
+        gui = nil,
+        guisp = nil,
+        ctermfg = base.cterm0D,
+        ctermbg = base.cterm02,
+      }
 
+      local hilights = {
         -- Transparent background
         Normal = { bg = "none" },
         NormalNC = { bg = "none" },
         NormalFloat = { bg = "none" },
       }
 
-      -- Apply highlights
-      for group, colors in pairs(highlights) do
+      -- Apply hlights
+      for group, colors in pairs(hilights) do
         vim.api.nvim_set_hl(0, group, colors)
       end
     end,

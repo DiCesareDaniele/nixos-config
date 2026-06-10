@@ -35,7 +35,7 @@ vim.o.scrolloff = 10
 
 vim.o.confirm = true
 
-vim.keymap.set("n", "<Esc>", "<cmd>nohlsearch<CR>")
+vim.opt.termguicolors = true
 
 vim.o.tabstop = 4
 vim.o.expandtab = true

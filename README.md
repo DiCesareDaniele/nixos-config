@@ -5,7 +5,6 @@ built with [snowfall framework](https://github.com/snowfallorg/lib)
 
 # FIX 
 - nvim
-  - default search menu
   - test with which-key to see keybinds and check for conflicts
   - test with around and inside functionality (mini.ai ???)
   - maybe integrate pane resize even tho I naver use it (tmux.nvim)

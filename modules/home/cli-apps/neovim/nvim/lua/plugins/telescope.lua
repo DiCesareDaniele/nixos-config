@@ -4,6 +4,7 @@ return {
     version = "*",
     dependencies = {
       "nvim-lua/plenary.nvim",
+      "nvim-telescope/telescope-ui-select.nvim",
       { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
     },
     -- do not lazy load because of autocmd
@@ -33,6 +34,15 @@ return {
           )
         end,
       })
+
+      local telescope = require("telescope")
+      telescope.setup({
+        extensions = {
+          ["ui-select"] = { require("telescope.themes").get_dropdown() },
+        },
+      })
+      telescope.load_extension("fzf")
+      telescope.load_extension("ui-select")
     end,
   },
 }

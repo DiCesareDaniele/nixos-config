@@ -20,3 +20,15 @@ vim.diagnostic.config({
 })
 
 vim.keymap.set("n", "<leader>q", vim.diagnostic.setloclist, { desc = "Open diagnostic quickfix list" })
+vim.keymap.set("n", "<leader>qq", vim.diagnostic.open_float, { desc = "Open diagnostic float" })
+
+vim.keymap.set("n", "gqn", function()
+  vim.diagnostic.jump({ count = 1, float = false })
+  vim.cmd("normal! zz")
+  vim.diagnostic.open_float()
+end, { desc = "Goto next diagnostic item" })
+vim.keymap.set("n", "gqp", function()
+  vim.diagnostic.jump({ count = -1, float = false })
+  vim.cmd("normal! zz")
+  vim.diagnostic.open_float()
+end, { desc = "Goto previous diagnostic item" })
