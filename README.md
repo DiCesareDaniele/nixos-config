@@ -3,11 +3,10 @@
 
 built with [snowfall framework](https://github.com/snowfallorg/lib)
 
-# FIX 
+*TODO:*
 - nvim
-  - test with which-key to see keybinds and check for conflicts
-  - test with around and inside functionality (mini.ai ???)
-  - maybe integrate pane resize even tho I naver use it (tmux.nvim)
+  - test a bit which-key (check for conflicts)
+  - test with around and inside functionality treesitter textobjects (try mini.ai)
 - desktop
 - get rid of rofi
 - unify font (pkg, size), cursor (pkg, size), etc... under variable

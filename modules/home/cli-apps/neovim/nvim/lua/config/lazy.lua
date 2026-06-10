@@ -21,9 +21,18 @@ require("lazy").setup({
     -- import your plugins
     { import = "plugins" },
   },
+  rocks = { enabled = false },
   -- Configure any other settings here. See the documentation for more details.
   -- colorscheme that will be used when installing plugins.
-  install = { colorscheme = { "catppuccin" } },
+  install = { colorscheme = { "default" } },
   -- automatically check for plugin updates
-  checker = { enabled = true },
+  checker = { enabled = true, notify = false },
+})
+
+-- auto update
+vim.api.nvim_create_autocmd("VimEnter", {
+  group = vim.api.nvim_create_augroup("lazy-autoupdate", { clear = true }),
+  callback = function()
+    require("lazy").update({ show = false })
+  end,
 })

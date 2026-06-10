@@ -364,7 +364,7 @@ return {
         -- Transparent background
         Normal = { bg = "none" },
         NormalNC = { bg = "none" },
-        NormalFloat = { bg = "none" },
+        -- NormalFloat = { bg = "none" },
       }
 
       -- Apply hlights

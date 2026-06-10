@@ -11,7 +11,7 @@ in {
     programs = {
       fzf = {
         enable = true;
-        defaultOptions = ["--bind tab:up,shift-tab:down"];
+        defaultOptions = ["--bind ctrl-y:accept"];
       };
       starship = enabled;
       zsh = {
@@ -49,6 +49,16 @@ in {
         initContent = '' 
           bindkey '^p' history-search-backward
           bindkey '^n' history-search-forward
+
+          bindkey -r '^Y'
+          bindkey '^Y' fzf-completion
+
+          # do not disable tab for now (maybe in the future)
+          # zstyle ':fzf-tab:*' fzf-bindings \
+          #   'ctrl-y:accept' \
+          #   'tab:ignore' \
+          #   'utab:ignore'
+          zstyle ':fzf-tab:*' fzf-bindings 'ctrl-y:accept'
 
           zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
           # disable sort when completing `git checkout`

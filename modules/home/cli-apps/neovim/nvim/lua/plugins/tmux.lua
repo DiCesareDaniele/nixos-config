@@ -1,21 +1,21 @@
 return {
   {
-    "christoomey/vim-tmux-navigator",
+    "aserowy/tmux.nvim",
     lazy = true,
-    cmd = {
-      "TmuxNavigateLeft",
-      "TmuxNavigateDown",
-      "TmuxNavigateUp",
-      "TmuxNavigateRight",
-      "TmuxNavigatePrevious",
-      "TmuxNavigatorProcessList",
-    },
     keys = {
-      { "<C-h>", "<cmd><C-U>TmuxNavigateLeft<cr>" },
-      { "<C-j>", "<cmd><C-U>TmuxNavigateDown<cr>" },
-      { "<C-k>", "<cmd><C-U>TmuxNavigateUp<cr>" },
-      { "<C-l>", "<cmd><C-U>TmuxNavigateRight<cr>" },
-      { "<C-\\>", "<cmd><C-U>TmuxNavigatePrevious<cr>" },
+      {
+        "<C-h>",
+        "<C-j>",
+        "<C-k>",
+        "<C-l>",
+        "<C-n>",
+        "<C-p>",
+        "<A-h>",
+        "<A-j>",
+        "<A-k>",
+        "<A-l>",
+      },
     },
+    opts = {},
   },
 }

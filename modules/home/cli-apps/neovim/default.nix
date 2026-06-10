@@ -8,17 +8,9 @@ in {
     enable = mkBoolOpt false "Whether to configure neovim";
   };
   config = mkIf cfg.enable {
-    programs.neovim = {
-      enable = true;
-      viAlias = true;
-      vimAlias = true;
-      defaultEditor = true;
-
-      withRuby = false;
-      withPython3 = false;
-    };
-    xdg.configFile.nvim = { source = ./nvim; recursive = true; };
     home.packages = with pkgs; [
+      # TODO: this packages should probably not be here
+      fd
       wl-clipboard
       gnumake
       tree-sitter
@@ -26,5 +18,16 @@ in {
     programs.zsh.shellAliases = {
       clip = "wl-copy";
     };
+    programs.neovim = {
+      enable = true;
+      viAlias = true;
+      vimAlias = true;
+      defaultEditor = true;
+
+      withNodeJs = false;
+      withPython3 = false;
+      withRuby = false;
+    };
+    xdg.configFile.nvim = { source = ./nvim; recursive = true; };
   };
 }
