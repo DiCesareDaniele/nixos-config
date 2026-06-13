@@ -1,9 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  ...
+}:
 with lib;
 with lib.internal;
 let
   cfg = config.archetypes.work;
-in {
+in
+{
   options.archetypes.work = {
     enable = mkBoolOpt false "Whether to enable common work archetype";
   };

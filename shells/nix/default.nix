@@ -4,8 +4,8 @@
 }:
 pkgs.mkShell {
   buildInputs = with pkgs; [
-    lua
-    stylua
-    lua-language-server
+    nixd
+    nixfmt
+    nixfmt-tree
   ];
 }

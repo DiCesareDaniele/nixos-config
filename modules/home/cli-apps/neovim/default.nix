@@ -1,9 +1,15 @@
-{ config, inputs, lib, pkgs, ... }: 
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
 with lib.internal;
 let
   cfg = config.cli-apps.nvim;
-in {
+in
+{
   options.cli-apps.nvim = {
     enable = mkBoolOpt false "Whether to configure neovim";
   };
@@ -28,6 +34,9 @@ in {
       withPython3 = false;
       withRuby = false;
     };
-    xdg.configFile.nvim = { source = ./nvim; recursive = true; };
+    xdg.configFile.nvim = {
+      source = ./nvim;
+      recursive = true;
+    };
   };
 }

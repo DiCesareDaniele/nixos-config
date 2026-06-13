@@ -1,10 +1,16 @@
-{ config, lib, pkgs, osConfig, ... }: 
+{
+  config,
+  lib,
+  osConfig,
+  ...
+}:
 with lib;
 with lib.internal;
 let
   cfg = config.user;
   user = osConfig.user;
-in {
+in
+{
   options.user = with types; {
     enable = mkBoolOpt true "Whether to configure user";
     name = mkOpt str user.name "The name to use for the user account";
@@ -16,7 +22,10 @@ in {
       username = cfg.name;
       homeDirectory = "/home/${cfg.name}";
       file = {
-        "Pictures" = { source = ./Pictures; recursive = true; };
+        "Pictures" = {
+          source = ./Pictures;
+          recursive = true;
+        };
       };
     };
   };

@@ -1,9 +1,14 @@
-{ config, lib, pkgs, ... }: 
+{
+  config,
+  lib,
+  ...
+}:
 with lib;
 with lib.internal;
 let
   cfg = config.hardware.networking;
-in {
+in
+{
   options.hardware.networking = {
     enable = mkBoolOpt false "Whether to configure networking";
   };

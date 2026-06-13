@@ -1,9 +1,15 @@
-{ config, lib, pkgs, ... }: 
+{
+  pkgs,
+  config,
+  lib,
+  ...
+}:
 with lib;
 with lib.internal;
 let
   cfg = config.nix;
-in {
+in
+{
   config = mkIf cfg.enable {
     environment.systemPackages = with pkgs; [
       wget
@@ -16,7 +22,10 @@ in {
     ];
 
     nix = {
-      settings.experimental-features = [ "nix-command" "flakes" ];
+      settings.experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
       gc = {
         automatic = true;
         dates = "daily";

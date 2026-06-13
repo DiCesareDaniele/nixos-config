@@ -1,4 +1,9 @@
-{ config, lib, pkgs, ... }: 
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
 with lib.internal;
 let
@@ -24,7 +29,8 @@ let
     # already set in modules/home/desktop/hyprland/default.nix
     # cursor = { ... };
   };
-in {
+in
+{
   options.desktop.addons.gtk = with types; {
     enable = mkBoolOpt false "Whether to configure gtk";
   };

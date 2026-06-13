@@ -1,4 +1,8 @@
-{ config, lib, pkgs, osConfig, ... }:
+{
+  lib,
+  osConfig,
+  ...
+}:
 with lib;
 with lib.internal;
 {

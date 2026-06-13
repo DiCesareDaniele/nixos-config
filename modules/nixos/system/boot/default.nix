@@ -1,9 +1,14 @@
-{ config, lib, pkgs, ... }: 
+{
+  config,
+  lib,
+  ...
+}:
 with lib;
 with lib.internal;
 let
   cfg = config.system.boot;
-in {
+in
+{
   options.system.boot = {
     enable = mkBoolOpt false "Whether to configure booting";
   };

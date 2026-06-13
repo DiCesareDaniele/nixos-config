@@ -1,9 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  ...
+}:
 with lib;
 with lib.internal;
 let
   cfg = config.suites.development;
-in {
+in
+{
   options.suites.development = {
     enable = mkBoolOpt false "Whether to enable common development configuration";
   };
@@ -19,7 +24,6 @@ in {
     apps = {
       vscode = enabled;
       bloomrpc = enabled;
-      android-studio = disabled;
     };
     virtualisation = {
       kvm = enabled;

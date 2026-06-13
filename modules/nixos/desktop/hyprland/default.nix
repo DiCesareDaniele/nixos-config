@@ -1,9 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  ...
+}:
 with lib;
 with lib.internal;
 let
   cfg = config.desktop.hyprland;
-in {
+in
+{
   options.desktop.hyprland = {
     enable = mkBoolOpt false "Whether to configure hyprland";
   };

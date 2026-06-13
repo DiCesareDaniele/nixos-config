@@ -1,9 +1,14 @@
-{ config, lib, pkgs, ... }: 
+{
+  config,
+  lib,
+  ...
+}:
 with lib;
 with lib.internal;
 let
   cfg = config.hardware.audio;
-in {
+in
+{
   options.hardware.audio = {
     enable = mkBoolOpt false "Whether to configure audio";
   };

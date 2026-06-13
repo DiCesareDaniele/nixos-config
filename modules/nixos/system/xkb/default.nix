@@ -1,9 +1,10 @@
-{ config, lib, pkgs, ... }: 
+{ config, lib, ... }:
 with lib;
 with lib.internal;
 let
   cfg = config.system.xkb;
-in {
+in
+{
   options.system.xkb = {
     enable = mkBoolOpt false "Whether to configure xkb";
     layout = mkOpt types.str "us" "xkb layout";

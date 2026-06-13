@@ -1,6 +1,10 @@
-{ config, lib, pkgs, ... }:
-with lib;
-with lib.internal;
+{
+  # config,
+  # lib,
+  ...
+}:
+# with lib;
+# with lib.internal;
 {
   # Uncomment this lines to enable passing options to home-manager from nixos
   # options.home = {
@@ -17,7 +21,7 @@ with lib.internal;
     #   xdg.configFile = mkAliasDefinitions options.home.configFile;
     # };
 
-    # snowfallorg.users.${config.user.name}.home.config = 
+    # snowfallorg.users.${config.user.name}.home.config =
     #   config.home.extraOptions;
 
     home-manager = {

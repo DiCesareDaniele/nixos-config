@@ -1,9 +1,14 @@
-{ config, lib, pkgs, ... }: 
+{
+  config,
+  lib,
+  ...
+}:
 with lib;
 with lib.internal;
 let
   cfg = config.tools.nix-ld;
-in {
+in
+{
   options.tools.nix-ld = {
     enable = mkBoolOpt false "Whether to configure nix-ld";
   };

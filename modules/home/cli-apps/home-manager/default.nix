@@ -1,9 +1,14 @@
-{ config, lib, pkgs, ... }: 
+{
+  config,
+  lib,
+  ...
+}:
 with lib;
 with lib.internal;
 let
   cfg = config.cli-apps.home-manager;
-in {
+in
+{
   options.cli-apps.home-manager = {
     enable = mkBoolOpt false "Whether to configure home-manager";
   };

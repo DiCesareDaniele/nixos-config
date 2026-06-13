@@ -1,9 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  ...
+}:
 with lib;
 with lib.internal;
 let
   cfg = config.suites.desktop;
-in {
+in
+{
   options.suites.desktop = {
     enable = mkBoolOpt false "Whether to enable common desktop configuration";
   };

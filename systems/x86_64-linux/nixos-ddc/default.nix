@@ -1,4 +1,7 @@
-{ inputs, config, lib, pkgs, ... }:
+{
+  lib,
+  ...
+}:
 with lib;
 with lib.internal;
 {

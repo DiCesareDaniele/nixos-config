@@ -1,17 +1,22 @@
-{ config, lib, pkgs, ... }: 
+{
+  config,
+  lib,
+  ...
+}:
 with lib;
 with lib.internal;
 let
   cfg = config.virtualisation.kvm;
-in {
+in
+{
   options.virtualisation.kvm = with types; {
     enable = mkBoolOpt false "Whether to configure KVM";
   };
   config = mkIf cfg.enable {
     dconf.settings = {
       "org/virt-manager/virt-manager/connections" = {
-        autoconnect = ["qemu:///system"];
-        uris = ["qemu:///system"];
+        autoconnect = [ "qemu:///system" ];
+        uris = [ "qemu:///system" ];
       };
     };
   };

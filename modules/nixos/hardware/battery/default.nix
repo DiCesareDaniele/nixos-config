@@ -1,9 +1,14 @@
-{ config, lib, pkgs, ... }: 
+{
+  config,
+  lib,
+  ...
+}:
 with lib;
 with lib.internal;
 let
   cfg = config.hardware.battery;
-in {
+in
+{
   options.hardware.battery = {
     enable = mkBoolOpt false "Whether to configure battery";
   };

@@ -1,9 +1,14 @@
-{ config, lib, pkgs, ... }: 
+{
+  config,
+  lib,
+  ...
+}:
 with lib;
 with lib.internal;
 let
   cfg = config.desktop.addons.alacritty;
-in {
+in
+{
   options.desktop.addons.alacritty = {
     enable = mkBoolOpt false "Whether to configure alacritty";
   };

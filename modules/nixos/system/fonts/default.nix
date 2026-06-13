@@ -1,9 +1,15 @@
-{ config, lib, pkgs, ... }: 
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
 with lib.internal;
 let
   cfg = config.system.fonts;
-in {
+in
+{
   options.system.fonts = {
     enable = mkBoolOpt false "Whether to configure fonts";
   };
@@ -23,7 +29,7 @@ in {
     fonts.fontconfig = {
       defaultFonts = {
         sansSerif = [ "JetBrainsMono Nerd Font" ];
-        serif     = [ "JetBrainsMono Nerd Font" ];
+        serif = [ "JetBrainsMono Nerd Font" ];
         monospace = [ "JetBrainsMono Nerd Font" ];
       };
     };

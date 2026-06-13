@@ -1,9 +1,15 @@
-{ config, lib, pkgs, ... }: 
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
 with lib.internal;
 let
   cfg = config.cli-apps.zsh;
-in {
+in
+{
   options.cli-apps.zsh = {
     enable = mkBoolOpt false "Whether to configure zsh";
   };
@@ -11,7 +17,7 @@ in {
     programs = {
       fzf = {
         enable = true;
-        defaultOptions = ["--bind ctrl-y:accept"];
+        defaultOptions = [ "--bind ctrl-y:accept" ];
       };
       starship = enabled;
       zsh = {
@@ -46,7 +52,7 @@ in {
             };
           }
         ];
-        initContent = '' 
+        initContent = ''
           bindkey '^p' history-search-backward
           bindkey '^n' history-search-forward
 

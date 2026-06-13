@@ -1,9 +1,14 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  ...
+}:
 with lib;
 with lib.internal;
 let
   cfg = config.suites.common;
-in {
+in
+{
   options.suites.common = {
     enable = mkBoolOpt false "Whether to enable common configuration";
   };

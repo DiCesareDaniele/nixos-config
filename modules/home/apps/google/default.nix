@@ -1,9 +1,15 @@
-{ config, lib, pkgs, ... }: 
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
 with lib.internal;
 let
   cfg = config.apps.google;
-in {
+in
+{
   options.apps.google = {
     enable = mkBoolOpt false "Whether to configure google";
   };

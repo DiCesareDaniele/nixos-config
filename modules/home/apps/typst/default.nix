@@ -1,9 +1,15 @@
-{ config, lib, pkgs, ... }:
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
 with lib.internal;
 let
   cfg = config.apps.typst;
-in {
+in
+{
   options.apps.typst = {
     enable = mkBoolOpt false "Whether to configure typst";
   };

@@ -1,9 +1,14 @@
-{ config, lib, pkgs, ... }: 
+{
+  config,
+  lib,
+  ...
+}:
 with lib;
 with lib.internal;
 let
   cfg = config.apps.firefox;
-in {
+in
+{
   options.apps.firefox = {
     enable = mkBoolOpt false "Whether to configure firefox";
   };

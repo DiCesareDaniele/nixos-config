@@ -1,9 +1,10 @@
-{ config, lib, pkgs, ... }: 
+{ config, lib, ... }:
 with lib;
 with lib.internal;
 let
   cfg = config.virtualisation.docker;
-in {
+in
+{
   config = mkIf cfg.enable {
     user.extraGroups = [ "docker" ];
   };

@@ -1,9 +1,15 @@
-{ config, lib, pkgs, ... }: 
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
 with lib.internal;
 let
   cfg = config.apps.bloomrpc;
-in {
+in
+{
   options.apps.bloomrpc = {
     enable = mkBoolOpt false "Whether to configure bloomrpc";
   };

@@ -1,9 +1,15 @@
-{ config, lib, pkgs, ... }: 
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
 with lib.internal;
 let
   cfg = config.apps.vscode;
-in {
+in
+{
   options.apps.vscode = {
     enable = mkBoolOpt false "Whether to configure vscode";
   };

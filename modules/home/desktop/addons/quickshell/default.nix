@@ -1,9 +1,15 @@
-{ config, lib, pkgs, ... }: 
+{
+  config,
+  lib,
+  pkgs,
+  ...
+}:
 with lib;
 with lib.internal;
 let
   cfg = config.desktop.addons.quickshell;
-in {
+in
+{
   options.desktop.addons.quickshell = {
     enable = mkBoolOpt false "Whether to configure quickshell";
   };
@@ -11,6 +17,9 @@ in {
     home.packages = with pkgs; [
       quickshell
     ];
-    xdg.configFile."quickshell" = { source = ./shell; recursive = true; };
+    xdg.configFile."quickshell" = {
+      source = ./shell;
+      recursive = true;
+    };
   };
 }
