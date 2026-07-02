@@ -17,7 +17,7 @@ in
       hyprland = enabled;
     };
     apps = {
-      google = disabled;
+      google = enabled;
       firefox = enabled;
     };
   };

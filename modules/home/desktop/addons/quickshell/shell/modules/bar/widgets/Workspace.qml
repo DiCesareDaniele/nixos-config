@@ -5,14 +5,14 @@ import qs.widgets
 import qs.utils
 
 Rectangle {
-  height: Style.capsuleHeight
-  width: child.width + 2 * Style.marginXXS
+  implicitHeight: Style.barHeight
+  implicitWidth: child.width + 2 * Style.marginXXS
   radius: height / 2
   color: Color.mSurface
 
   Row {
-    anchors.centerIn: parent
     id: child
+    anchors.centerIn: parent
 
     Repeater {
       model: 10
@@ -29,19 +29,20 @@ Rectangle {
           return currWorkspace() === ws
         }
 
-        height: Style.capsuleHeight * 0.8
-        width: Style.capsuleHeight * 0.8
+        implicitHeight: Style.barHeight - Style.marginXXS
+        implicitWidth: Style.barHeight - Style.marginXXS
         anchors.verticalCenter: parent.verticalCenter
         color: "transparent"
 
         Icon {
           anchors.centerIn: parent
-          color: isActive() ? Color.mOnSurface : "gray"
-          icon: isActive() ? "md-stop_circle" : "md-circle_medium"
+          color: Color.mOnSurface
+          icon: isActive() ? "md-record_circle" : "md-circle_medium"
         }
 
         MouseArea {
           anchors.fill: parent
+          // TODO: use service instead of calling Hyprland directly
           onClicked: Hyprland.dispatch(`hl.dsp.focus({ workspace = ${ws}})`)
         }
       }

@@ -5,8 +5,8 @@ import qs.utils
 import qs.services
 
 Item {
-  width: Style.capsuleHeight
-  height: Style.capsuleHeight
+  implicitWidth: Style.barHeight
+  implicitHeight: Style.barHeight
 
   BarPill {
     anchors.centerIn: parent

@@ -69,28 +69,7 @@ Singleton {
   readonly property real opacityAlmost: 0.95
   readonly property real opacityFull: 1.0
 
-  // Widgets base size
-  readonly property real baseWidgetSize: 31
-  readonly property real sliderWidth: 200
-
   readonly property real uiScaleRatio: Settings.general.scaleRatio
 
-  // Bar Height
   readonly property real barHeight: 31
-
-  // Capsule Height
-  // Note: capsule must always be smaller than barHeight to account for border rendering
-  // Qt Quick Rectangle borders are drawn centered on edges (half inside, half outside)
-  readonly property real capsuleHeight: barHeight * 0.95
-
-  // The base/default font size for all texts in the bar
-  readonly property real _barBaseFontSize: Math.max(1, (Style.barHeight / Style.capsuleHeight) * Style.fontSizeXXS)
-  readonly property real barFontSize: _barBaseFontSize
-
-  readonly property color capsuleColor: Color.mSurfaceVariant
-
-  readonly property color capsuleBorderColor: Color.mPrimary
-  readonly property int capsuleBorderWidth: Style.borderS
-
-  readonly property color boxBorderColor: Color.mOutline
 }

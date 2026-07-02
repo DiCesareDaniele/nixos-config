@@ -40,13 +40,10 @@ Singleton {
 
   // Debug log (only when Settings.isDebug is true)
   function d(...args) {
-    // TODO:
-    // if (Settings?.isDebug) {
-    //   var msg = _formatMessage(...args);
-    //   console.debug(msg);
-    // }
-    var msg = _formatMessage(...args);
-    console.debug(msg);
+    if (Settings?.isDebug) {
+      var msg = _formatMessage(...args);
+      console.debug(msg);
+    }
   }
 
   // Info log (always visible)

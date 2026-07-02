@@ -31,6 +31,10 @@ hl.on("hyprland.start", function()
   hl.exec_cmd("quickshell")
 end)
 
+hl.on("monitor.added", function(monitor)
+  hl.exec_cmd("awww img -o " .. monitor.name .. " ~/Pictures/wallpaper.jpg")
+end)
+
 -------------------------------
 ---- ENVIRONMENT VARIABLES ----
 -------------------------------
@@ -54,8 +58,8 @@ hl.env("HYPRCURSOR_SIZE", "24")
 
 hl.config({
   general = {
-    gaps_in = 5,
-    gaps_out = 20,
+    gaps_in = 4.5,
+    gaps_out = 9.0,
 
     border_size = 2,
 
@@ -222,7 +226,7 @@ end
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
 hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
-hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+hl.bind(mainMod .. " + SHIFT + mouse:272", hl.dsp.window.resize(), { mouse = true })
 
 -- Laptop multimedia keys for volume and LCD brightness
 hl.bind(

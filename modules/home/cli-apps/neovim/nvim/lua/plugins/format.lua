@@ -20,6 +20,7 @@ return {
         javascript = { "prettierd", "prettier", stop_after_first = true },
         typescript = { "prettierd", "prettier", stop_after_first = true },
         nix = { "nixfmt" },
+        typst = { "typstyle" },
       },
       formatters = {
         stylua = {

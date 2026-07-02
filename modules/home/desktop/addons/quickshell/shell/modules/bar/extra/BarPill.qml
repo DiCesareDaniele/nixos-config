@@ -9,12 +9,12 @@ Item {
 
   required property string icon
 
-  width: Style.capsuleHeight
-  height: Style.capsuleHeight
+  implicitWidth: Style.barHeight
+  implicitHeight: Style.barHeight
 
   Rectangle {
-    width: root.width
-    height: root.height
+    implicitWidth: root.width
+    implicitHeight: root.height
     radius: Style.radiusS
     color: Color.mSurface
     anchors.centerIn: parent

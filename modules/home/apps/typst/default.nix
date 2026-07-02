@@ -19,6 +19,8 @@ in
       tinymist
       typstyle
       watchexec
+      websocat
+      zathura
     ];
   };
 }

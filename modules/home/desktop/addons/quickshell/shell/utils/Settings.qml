@@ -5,6 +5,8 @@ import Quickshell
 import Quickshell.Io
 
 Singleton {
+  property bool isDebug: false
+
   property JsonObject general: JsonObject {
     property real scaleRatio: 1.0
     property real radiusRatio: 1.0
