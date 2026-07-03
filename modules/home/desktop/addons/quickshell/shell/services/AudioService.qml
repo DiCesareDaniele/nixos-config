@@ -17,18 +17,18 @@ Singleton {
 
   function setVolume(vol) {
     if (sink?.audio) {
-      sink.audio.volume = Math.max(0.0, Math.min(1.0, vol))
+      sink.audio.volume = Math.max(0.0, Math.min(1.0, vol));
     }
   }
 
   function toggleMute() {
     if (sink?.audio) {
-      sink.audio.muted = !sink.audio.muted
+      sink.audio.muted = !sink.audio.muted;
     }
   }
 
   // TODO: add other methods
-  
+
   PwObjectTracker {
     objects: [root.sink, root.source]
   }

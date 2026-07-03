@@ -43,7 +43,7 @@ Scope {
         RowLayout {
           anchors.horizontalCenter: parent.horizontalCenter
 
-          Island{}
+          Island {}
         }
 
         // Right Section

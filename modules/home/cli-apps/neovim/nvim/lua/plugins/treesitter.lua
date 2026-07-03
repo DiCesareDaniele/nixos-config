@@ -22,6 +22,7 @@ return {
         "html",
         "css",
         "tsx",
+        "qmljs",
         -- config
         "json",
         "yaml",

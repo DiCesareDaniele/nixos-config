@@ -11,7 +11,7 @@ Item {
   BarPill {
     anchors.centerIn: parent
     icon: {
-      const brightness = BrightnessService.percent
+      const brightness = BrightnessService.percent;
       if (brightness >= 75) {
         return "md-brightness_7";
       } else if (brightness >= 50) {

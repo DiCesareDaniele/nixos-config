@@ -14,7 +14,7 @@ Item {
       if (AudioService.muted) {
         return "md-volume_mute";
       }
-      const audio = AudioService.percent
+      const audio = AudioService.percent;
       if (audio >= 66) {
         return "md-volume_high";
       } else if (audio >= 33) {

@@ -7,7 +7,7 @@ Singleton {
   readonly property string defaultIcon: "skull"
 
   readonly property var aliases: {
-    "skull": "md-skull",
+    "skull": "md-skull"
   }
 
   readonly property var icons: {
@@ -10774,6 +10774,6 @@ Singleton {
     "weather-wind_south_east": "\u{e356}",
     "weather-wind_south_west": "\u{e355}",
     "weather-wind_west": "\u{e354}",
-    "weather-windy": "\u{e31e}",
+    "weather-windy": "\u{e31e}"
   }
 }

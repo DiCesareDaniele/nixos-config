@@ -20,7 +20,7 @@ Item {
         return prefix;
       }
       if (battery === 0) {
-        return prefix + "_outline"; 
+        return prefix + "_outline";
       }
       return prefix + "_" + batteryRounded;
     }

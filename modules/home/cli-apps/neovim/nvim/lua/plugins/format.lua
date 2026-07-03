@@ -21,11 +21,15 @@ return {
         typescript = { "prettierd", "prettier", stop_after_first = true },
         nix = { "nixfmt" },
         typst = { "typstyle" },
+        qml = { "qmlformat" },
       },
       formatters = {
         stylua = {
-          append_args = { "--indent-type", "Spaces", "--indent-width", "2" },
+          prepend_args = { "--indent-type", "Spaces", "--indent-width", "2" },
         },
+        qmlformat = {
+          prepend_args = { "--indent-width", "2" },
+        }
       },
     },
   },

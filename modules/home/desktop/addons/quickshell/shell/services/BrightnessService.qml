@@ -15,19 +15,15 @@ Singleton {
 
   function refresh() {
     if (backlightPath === "") {
-      getBacklightPath.running = true
+      getBacklightPath.running = true;
     }
-    getBrightness.running = true
+    getBrightness.running = true;
   }
 
   function setBrightness(percent) {
-    const value = Math.max(0, Math.min(100, percent))
-    setBrightness.command = [
-      "brightnessctl",
-      "set",
-      `${Math.round(value)}%`
-    ]
-    setBrightness.running = true
+    const value = Math.max(0, Math.min(100, percent));
+    setBrightness.command = ["brightnessctl", "set", `${Math.round(value)}%`];
+    setBrightness.running = true;
   }
 
   Process {
@@ -36,10 +32,10 @@ Singleton {
 
     stdout: SplitParser {
       onRead: data => {
-        const parts = data.trim().split(",")
+        const parts = data.trim().split(",");
         if (parts.length >= 5) {
-          devBrightness = Number(parts[2])
-          maxBrightness = Number(parts[4])
+          devBrightness = Number(parts[2]);
+          maxBrightness = Number(parts[4]);
         }
       }
     }
@@ -56,8 +52,8 @@ Singleton {
 
     stdout: SplitParser {
       onRead: data => {
-        const device = data.trim()
-        backlightPath = `/sys/class/backlight/${device}/brightness`
+        const device = data.trim();
+        backlightPath = `/sys/class/backlight/${device}/brightness`;
       }
     }
   }
