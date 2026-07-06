@@ -1,5 +1,4 @@
 import QtQuick
-import Quickshell
 import qs.utils
 import qs.services
 

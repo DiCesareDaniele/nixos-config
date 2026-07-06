@@ -5,6 +5,8 @@ import Quickshell
 import Quickshell.Io
 
 Singleton {
+  id: root
+
   property int devBrightness: 0
   property int maxBrightness: 1
 
@@ -34,8 +36,8 @@ Singleton {
       onRead: data => {
         const parts = data.trim().split(",");
         if (parts.length >= 5) {
-          devBrightness = Number(parts[2]);
-          maxBrightness = Number(parts[4]);
+          root.devBrightness = Number(parts[2]);
+          root.maxBrightness = Number(parts[4]);
         }
       }
     }
@@ -43,7 +45,7 @@ Singleton {
 
   Process {
     id: setBrightness
-    onExited: refresh()
+    onExited: root.refresh
   }
 
   Process {
@@ -53,16 +55,16 @@ Singleton {
     stdout: SplitParser {
       onRead: data => {
         const device = data.trim();
-        backlightPath = `/sys/class/backlight/${device}/brightness`;
+        root.backlightPath = `/sys/class/backlight/${device}/brightness`;
       }
     }
   }
 
   readonly property FileView brightnessWatcher: FileView {
-    path: backlightPath
-    watchChanges: backlightPath !== ""
+    path: root.backlightPath
+    watchChanges: root.backlightPath !== ""
     onFileChanged: {
-      Qt.callLater(refresh);
+      Qt.callLater(root.refresh);
     }
   }
 

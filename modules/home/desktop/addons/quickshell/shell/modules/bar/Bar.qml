@@ -8,6 +8,7 @@ Scope {
   Variants {
     model: Quickshell.screens
 
+    // qmllint disable uncreatable-type
     PanelWindow {
       required property var modelData
       screen: modelData
@@ -20,6 +21,7 @@ Scope {
         right: true
       }
 
+      // qmllint disable unqualified unresolved-type
       margins {
         top: Style.marginM
         left: Style.marginM

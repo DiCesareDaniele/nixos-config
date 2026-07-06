@@ -1,6 +1,7 @@
 pragma Singleton
 
 import Quickshell
+import qs.utils
 
 Singleton {
   // Formats a Date object into a YYYYMMDD-HHMMSS string.

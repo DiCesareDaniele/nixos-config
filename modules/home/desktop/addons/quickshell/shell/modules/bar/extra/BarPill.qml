@@ -1,8 +1,6 @@
 import QtQuick
-import Quickshell
 import qs.widgets
 import qs.utils
-import qs.services
 
 Item {
   id: root
