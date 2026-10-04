@@ -30,6 +30,7 @@ in
           ls = "ls --color";
           ".." = "cd ..";
           "..." = "cd ../..";
+          "...." = "cd ../../..";
         };
         dotDir = "${config.xdg.configHome}/zsh";
         history = {

@@ -15,6 +15,9 @@ return {
       formatters_by_ft = {
         lua = { "stylua" },
         rust = { "rustfmt" },
+        toml = { "taplo" },
+        ocaml = { "ocamlformat" },
+        c = { "clang-format" },
         go = { "gofmt" },
         python = { "black" },
         javascript = { "prettierd", "prettier", stop_after_first = true },
@@ -22,6 +25,7 @@ return {
         nix = { "nixfmt" },
         typst = { "typstyle" },
         qml = { "qmlformat" },
+        julia = { "runic" },
       },
       formatters = {
         stylua = {
